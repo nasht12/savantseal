@@ -20,7 +20,7 @@ interface IModel {
 }
 
 export default function Home() {
-  const [data, setData] = useState<IModel | null>(null);
+  const [data, setData] = useState<{ [key: string]: IModel[] } | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,13 +31,13 @@ export default function Home() {
         },
       });
   
-      const data: { [key: string]: IModel } = await response.json();
-      const dataArray: IModel[] = Object.values(data);
-      setData(dataArray[1]);
+      const data: { [key: string]: IModel[] } = await response.json();
+      setData(data);
     };
   
     fetchData();
   }, []);
+  
   
 
   const startMessages = [
@@ -82,7 +82,7 @@ export default function Home() {
         <SearchBar />
       </div>
       <div>
-        <ModelsTable data={[data]}/>
+        <ModelsTable data={data}/>
       </div>
     </main>
   )
