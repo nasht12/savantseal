@@ -26,9 +26,9 @@ const Chat: React.FC<ChatProps> = ({ messages }) => {
             <time className="text-xs opacity-50">{message.time}</time>
           </div>
           <div className="chat-bubble">{message.text}</div>
-          <div className="chat-footer opacity-50">
+          {/* <div className="chat-footer opacity-50">
             {message.status}
-          </div>
+          </div> */}
         </div>
       ))}
     </>

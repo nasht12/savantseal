@@ -17,7 +17,8 @@ const Navbar: React.FC = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost normal-case text-xl">Savant Seal</a>
+      <code className="font-mono font-bold">Savant Seal</code>
+        {/* <a className="btn btn-ghost normal-case text-xl">Savant Seal</a> */}
       </div>
       <div className="navbar-end">
         {/* <button className="btn btn-ghost btn-circle">
