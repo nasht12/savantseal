@@ -10,7 +10,7 @@ interface IModel {
 }
 
 interface ModelsTableProps {
-  data: IModel[];
+  data: { [key: string]: IModel[] };
 }
 
 const ModelsTable: React.FC<ModelsTableProps> = ({ data }) => {
@@ -27,7 +27,7 @@ const ModelsTable: React.FC<ModelsTableProps> = ({ data }) => {
         </tr>
       </thead>
       <tbody>
-        {data.map((item, index) => (
+        {Object.values(data).flat().map((item, index) => (
           <tr key={index}>
             <td>{item.id}</td>
             <td>{item.object}</td>

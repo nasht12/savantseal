@@ -62,6 +62,9 @@ export default function Home() {
     },
   ];
 
+  console.log('data', typeof(data))
+  console.log('data', data)
+
   if (!data) {
     return <div>Loading...</div>;
   }
@@ -79,7 +82,7 @@ export default function Home() {
         <SearchBar />
       </div>
       <div>
-        <ModelsTable data={data}/>
+        <ModelsTable data={[data]}/>
       </div>
     </main>
   )
