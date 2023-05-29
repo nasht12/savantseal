@@ -1,13 +1,22 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiRequest, NextApiResponse } from 'next';
+import { Configuration, OpenAIApi } from 'openai';
 
-type Data = {
-  name: string
-}
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === 'GET') {
+    const configuration = new Configuration({
+      apiKey: process.env.OPENAI_API_KEY,
+      organization: process.env.ORGANIZATION_ID
+    });
+    const openai = new OpenAIApi(configuration);
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  res.status(200).json({ name: 'John Doe' })
+    try {
+      const response = await openai.listModels();
+      res.status(200).json(response.data);
+    } catch (error) {
+      console.log(error)
+      res.status(500).json({ error: 'Error listing models' });
+    }
+  } else {
+    res.status(405).json({ error: 'Method not allowed' });
+  }
 }

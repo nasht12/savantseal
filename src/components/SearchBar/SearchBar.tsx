@@ -1,18 +1,44 @@
-import React from 'react';
+import { useState } from 'react';
 
-const SearchBar: React.FC = () => {
+export default function SearchBar() {
+  const [input, setInput] = useState('');
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        prompt: input,
+        maxTokens: 7,
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+  };
+
   return (
-    <div className="form-control w-full">
-      <div className="input-group">
-        <input type="text" placeholder="Search…" className="input input-bordered w-full" />
-        <button className="btn btn-square">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-        </button>
+    <form onSubmit={handleSubmit} className="w-full">
+      <div className="form-control">
+        <div className="input-group">
+          <input
+            type="text"
+            placeholder="Search…"
+            className="input input-bordered w-full"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <button type="submit" className="btn btn-square">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </button>
+        </div>
       </div>
-    </div>
+    </form>
   );
-};
-
-export default SearchBar;
+}
