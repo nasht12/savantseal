@@ -17,34 +17,22 @@ type DataType = {
 export default function Home() {
   const [data, setData] = useState<DataType | null>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('/api/openai', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          prompt: 'Your prompt here',
-        }),
-      });
+useEffect(() => {
+  const fetchData = async () => {
+    const response = await fetch('/api/hello', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-      const response2 = await fetch('/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          prompt: 'Your prompt here',
-        }),
-      });
+    const data = await response.json();
+    setData(data);
+  };
 
-      const data = await response.json();
-      setData(data);
-    };
+  fetchData();
+}, []);
 
-    fetchData();
-  }, []);
 
   const startMessages = [
     {
