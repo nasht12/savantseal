@@ -16,7 +16,6 @@ type DataType = {
 
 export default function Home() {
   const [data, setData] = useState<DataType | null>(null);
-  const [data2, setData2] = useState<DataType | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,9 +40,7 @@ export default function Home() {
       });
 
       const data = await response.json();
-      const data2 = await response2.json();
       setData(data);
-      setData2(data2);
     };
 
     fetchData();
@@ -93,10 +90,6 @@ export default function Home() {
     <div>
       <h1>Prompt: {data.prompt}</h1>
       <h2>Response: {data.response}</h2>
-    </div>
-    <div>
-      <h1>Prompt2: {data2.prompt}</h1>
-      <h2>Response2: {data2.response}</h2>
     </div>
   </main>
   )
