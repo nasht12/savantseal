@@ -46,22 +46,20 @@ export default function Home() {
       >
         <h2 className="text-3xl font-semibold">What's under the hood?</h2>
         <p className="mt-2">
-          This template repo uses some of the following features provided by
-          Clerk. To learn more, read the{" "}
+         Streamline your college application journey with Sivvy. Learn more about{" "}
           <a
             href="https://clerk.com/docs?utm_source=vercel-template&utm_medium=template_repos&utm_campaign=nextjs_template"
             className="font-medium text-primary-600 hover:underline"
           >
-            Clerk Docs
+            Sivvy
           </a>
           .
         </p>
         <div className="grid gap-8 mt-8 lg:grid-cols-3">
           <div className="flex flex-col h-56 gap-1 p-8 bg-white shadow-lg rounded-2xl">
-            <h3 className="text-lg font-medium">Customizable Components</h3>
+            <h3 className="text-lg font-medium">Essay Guidance</h3>
             <p className="text-gray-700">
-              Prebuilt components to handle essential functionality like user
-              sign-in, sign-up, and account management.
+            Sivvy (Our AI assistant) provides expert guidance and feedback on your college application essays.
             </p>
             <div className="grow"></div>
             <a
@@ -69,14 +67,13 @@ export default function Home() {
               className="text-primary-600 cta hover:underline"
               target="_blank"
             >
-              Components <span className="arrow">-&gt;</span>
+              Chat with Sivvy <span className="arrow">-&gt;</span>
             </a>
           </div>
           <div className="flex flex-col h-56 gap-1 p-8 bg-white shadow-lg rounded-2xl">
-            <h3 className="text-lg font-medium">React Hooks</h3>
+            <h3 className="text-lg font-medium">Application Tracking</h3>
             <p className="text-gray-700">
-              Build custom functionality by accessing auth state, user and
-              session data, and more with Clerk's React Hooks.
+            Easily monitor which colleges you've applied to, check deadlines, and receive reminders.
             </p>
             <div className="grow"></div>
             <a
@@ -84,14 +81,13 @@ export default function Home() {
               className="text-primary-600 cta hover:underline"
               target="_blank"
             >
-              React Hooks <span className="arrow">-&gt;</span>
+               Tracking <span className="arrow">-&gt;</span>
             </a>
           </div>
           <div className="flex flex-col h-56 gap-1 p-8 bg-white shadow-lg rounded-2xl">
-            <h3 className="text-lg font-medium">Multitenancy</h3>
+            <h3 className="text-lg font-medium">Personalized Recommendations</h3>
             <p className="text-gray-700">
-              Seamlessly create and switch between organizations, invite and
-              manage members, and assign custom roles.
+            Our AI assistant leverages your academic and extracurricular achievements to provide tailored college recommendations.
             </p>
             <div className="grow"></div>
             <a
@@ -99,7 +95,7 @@ export default function Home() {
               className="text-primary-600 cta hover:underline"
               target="_blank"
             >
-              Organizations <span className="arrow">-&gt;</span>
+              Recommendations <span className="arrow">-&gt;</span>
             </a>
           </div>
         </div>
