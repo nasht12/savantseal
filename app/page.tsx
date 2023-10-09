@@ -3,16 +3,17 @@ import Link from "next/link";
 import componentsImg from "./assets/components.svg";
 import { DownArrow, RightArrow } from "./icons";
 import "./home.css";
+import PlainSphereRender  from "../components/three-sphere";
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="bg-black">
       <article className="grid lg:grid-cols-2">
         <div className="px-8 py-20 md:px-20 lg:py-48">
           <h1 className="text-5xl font-semibold text-transparent md:text-6xl gradient">
             Meet Savant Seal.
           </h1>
-          <p className="mt-2 text-lg">
+          <p className="mt-2 text-lg text-white">
           An AI chat assistant guiding you through the college admission odessey. With expert guidance, and resources make every application stand out.
           </p>
           <div className="flex gap-2 mt-8">
@@ -38,14 +39,15 @@ export default function Home() {
         </div>
         <div className="flex flex-col justify-center">
           {/* <Image src={componentsImg} alt="Clerk embeddable components" /> */}
+          <PlainSphereRender />
         </div>
       </article>
       <article
         className="px-8 py-12 bg-black bg-opacity-5 md:px-20 md:py-24"
         id="features"
       >
-        <h2 className="text-3xl font-semibold">What's under the hood?</h2>
-        <p className="mt-2">
+        <h2 className="text-3xl font-semibold text-white">What's under the hood?</h2>
+        <p className="mt-2 text-white">
          Streamline your college application journey with Sivvy. Learn more about{" "}
           <a
             href="https://clerk.com/docs?utm_source=vercel-template&utm_medium=template_repos&utm_campaign=nextjs_template"
