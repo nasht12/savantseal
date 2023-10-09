@@ -68,6 +68,7 @@ export default function RootLayout({
             </Link>
             <Link href="/blog">Blog</Link>
             <Link href="/assistant">AI Assistant</Link>
+            <Link href="/chat">Chat</Link>
             <div className="grow" />
             <SignedIn>
               <div className="hidden sm:block">
