@@ -2,7 +2,7 @@ import { UseChatHelpers } from 'ai/react'
 import * as React from 'react'
 import Textarea from 'react-textarea-autosize'
 
-import { Button, buttonVariants } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button1'
 import { IconArrowElbow, IconPlus } from '@/components/ui/icons'
 import {
   Tooltip,
