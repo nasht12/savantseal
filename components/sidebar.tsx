@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { Button } from '@/components/ui/button1'
+import { Button } from '@/components/ui/button'
 import {
   Sheet,
   SheetContent,
