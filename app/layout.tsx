@@ -66,10 +66,11 @@ export default function RootLayout({
                 priority
               /> */}
             </Link>
-            <Link href="/blog">Blog</Link>
-            <Link href="/assistant">AI Assistant</Link>
+            <Link href="/blog" className="hover:text-blue-400">Blog</Link>
+            {/* <Link href="/assistant">AI Assistant</Link>
             <Link href="/chat">Chat</Link>
-            <Link href="/collegelist">College List</Link>
+            <Link href="/collegelist">College List</Link> */}
+            <Link href="/sivvy" className="hover:text-blue-400">Sivvy - AI chat Assistant</Link>
             <div className="grow" />
             <SignedIn>
               <div className="hidden sm:block">

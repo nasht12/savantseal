@@ -71,7 +71,7 @@ const { messages, input, handleInputChange, handleSubmit, data } = useChat();
     console.log(data);
     const prompt = "Based on the following criteria, find the colleges that match the following preferences for field of study, location and college category." + data
     handleSubmit;
-    console.log(messages);
+    console.log('messages', messages);
     // toast({
     //   title: "You submitted the following values:",
     //   description: (

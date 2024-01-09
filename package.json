@@ -67,6 +67,8 @@
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
     "shiki": "^0.14.4",
+    "sonner": "^1.0.3",
+    "sooner": "^1.1.4",
     "tailwindcss": "3.3.2",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.157.0",
