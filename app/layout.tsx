@@ -13,6 +13,7 @@ import { Docs, Github, Times } from "./icons";
 import { Twitter } from "./icons";
 import { Discord } from "./icons";
 import { Metadata } from "next";
+import { auth } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const { userId } = auth();
   return (
     <html lang="en">
       <ClerkProvider
@@ -48,6 +50,7 @@ export default function RootLayout({
         }}
       >
         <body className={`${inter.className} min-h-screen flex flex-col`}>
+        {userId && (
           <header className="flex items-center h-20 gap-4 px-4 border-b border-black border-solid sm:px-8 border-opacity-20">
             <Link href="/" className="flex items-center h-20 gap-2 sm:gap-4">
               <Image
@@ -66,9 +69,24 @@ export default function RootLayout({
                 priority
               /> */}
             </Link>
-            <Link href="/blog" className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded  hover:text-blue-600">Blog</Link>
-            <Link href="/dashboard" className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded  hover:text-blue-600">AI Assistant</Link>
-            <Link href="/profile" className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded hover:border-blue-600 hover:text-blue-600">Profile</Link>
+                <Link
+                  href="/blog"
+                  className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded  hover:text-blue-600"
+                >
+                  Blog
+                </Link>
+                <Link
+                  href="/dashboard"
+                  className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded  hover:text-blue-600"
+                >
+                  Sivvy
+                </Link>
+                <Link
+                  href="/profile"
+                  className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded hover:border-blue-600 hover:text-blue-600"
+                >
+                  Profile
+                </Link>
             <div className="grow" />
             <SignedIn>
               <div className="hidden sm:block">
@@ -89,6 +107,7 @@ export default function RootLayout({
               <UserButton afterSignOutUrl="/" />
             </SignedIn>
           </header>
+        )}
           <main className="grow">{children}</main>
           <footer className="flex items-center h-20 gap-1 px-8 font-medium border-t md:px-20">
             <Image
