@@ -4,8 +4,11 @@ import componentsImg from "./assets/components.svg";
 import { DownArrow, RightArrow } from "./icons";
 import "./home.css";
 import PlainSphereRender  from "../components/three-sphere";
+import { auth, currentUser } from "@clerk/nextjs";
 
 export default function Home() {
+  const { userId } = auth();
+
   return (
     <main className="bg-black">
       <article className="grid lg:grid-cols-2">
@@ -21,7 +24,7 @@ export default function Home() {
               href="/dashboard"
               className="flex content-center gap-2 px-4 py-2 font-semibold text-white transition-colors duration-200 rounded-lg bg-primary-600 hover:bg-primary-700"
             >
-              Login
+              {userId ? "Dashboard" : "Login"}
               <div className="m-auto">
                 <RightArrow />
               </div>
@@ -50,7 +53,7 @@ export default function Home() {
         <p className="mt-2 text-white">
          Streamline your college application journey with Sivvy. Learn more about{" "}
           <a
-            href="https://clerk.com/docs?utm_source=vercel-template&utm_medium=template_repos&utm_campaign=nextjs_template"
+            href=""
             className="font-medium text-primary-600 hover:underline"
           >
             Sivvy
@@ -65,7 +68,7 @@ export default function Home() {
             </p>
             <div className="grow"></div>
             <a
-              href="https://clerk.com/docs/component-reference/overview?utm_source=vercel-template&utm_medium=template_repos&utm_campaign=nextjs_template"
+              href=""
               className="text-primary-600 cta hover:underline"
               target="_blank"
             >
@@ -79,7 +82,7 @@ export default function Home() {
             </p>
             <div className="grow"></div>
             <a
-              href="https://clerk.com/docs/reference/clerk-react/useuser?utm_source=vercel-template&utm_medium=template_repos&utm_campaign=nextjs_template"
+              href=""
               className="text-primary-600 cta hover:underline"
               target="_blank"
             >
@@ -93,7 +96,7 @@ export default function Home() {
             </p>
             <div className="grow"></div>
             <a
-              href="https://clerk.com/docs/organizations/overview?utm_source=vercel-template&utm_medium=template_repos&utm_campaign=nextjs_template"
+              href=""
               className="text-primary-600 cta hover:underline"
               target="_blank"
             >

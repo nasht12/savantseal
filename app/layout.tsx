@@ -66,9 +66,9 @@ export default function RootLayout({
                 priority
               /> */}
             </Link>
-            <Link href="/blog">Blog</Link>
-            <Link href="/assistant">AI Assistant</Link>
-            <Link href="/chat">Chat</Link>
+            <Link href="/blog" className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded  hover:text-blue-600">Blog</Link>
+            <Link href="/dashboard" className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded  hover:text-blue-600">AI Assistant</Link>
+            <Link href="/profile" className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded hover:border-blue-600 hover:text-blue-600">Profile</Link>
             <div className="grow" />
             <SignedIn>
               <div className="hidden sm:block">
