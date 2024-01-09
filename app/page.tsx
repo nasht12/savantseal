@@ -52,12 +52,12 @@ export default function Home() {
         <h2 className="text-3xl font-semibold text-white">What's under the hood?</h2>
         <p className="mt-2 text-white">
          Streamline your college application journey with Sivvy. Learn more about{" "}
-          <a
-            href=""
+          <Link
+            href="/dashboard"
             className="font-medium text-primary-600 hover:underline"
           >
             Sivvy
-          </a>
+          </Link>
           .
         </p>
         <div className="grid gap-2 mt-12 lg:grid-cols-3">
@@ -67,13 +67,12 @@ export default function Home() {
             Sivvy (Our AI assistant) provides expert guidance and feedback on your college application essays.
             </p>
             <div className="grow"></div>
-            <a
+            <Link
               href="/dashboard"
               className="text-primary-600 cta hover:text-blue-400"
-              target="_blank"
             >
               Chat with Sivvy <span className="arrow">-&gt;</span>
-            </a>
+            </Link>
           </div>
           <div className="flex flex-col h-56 gap-1 p-8 bg-white shadow-lg rounded-2xl">
             <h3 className="text-lg font-medium text-blue-300">Application Tracking</h3>
@@ -81,13 +80,12 @@ export default function Home() {
             Easily monitor which colleges you've applied to, check deadlines, and receive reminders.
             </p>
             <div className="grow"></div>
-            <a
+            <Link
               href="/profile"
               className="text-primary-600 cta hover:text-blue-400"
-              target="_blank"
             >
                Tracking <span className="arrow">-&gt;</span>
-            </a>
+            </Link>
           </div>
           <div className="flex flex-col h-56 gap-1 p-8 bg-white shadow-lg rounded-2xl">
             <h3 className="text-lg font-medium text-blue-300">Personalized Recommendations</h3>
