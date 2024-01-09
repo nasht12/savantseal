@@ -22,15 +22,15 @@ export default function Home() {
           <div className="flex gap-2 mt-8">
             <Link
               href="/dashboard"
-              className="flex content-center gap-2 px-4 py-2 font-semibold text-white transition-colors duration-200 rounded-lg bg-primary-600 hover:bg-primary-700"
+              className="flex content-center gap-2 px-4 py-2 font-semibold text-white transition-colors duration-200 rounded-lg bg-primary-600 hover:text-blue-400 hover:bg-primary-700"
             >
-              {userId ? "Dashboard" : "Login"}
+              {userId ? "Sivvy" : "Login"}
               <div className="m-auto">
                 <RightArrow />
               </div>
             </Link>
             <a
-              className="flex gap-2 px-4 py-2 font-semibold text-gray-600 transition duration-100 rounded-lg hover:text-gray-800"
+              className="flex gap-2 px-4 py-2 font-semibold text-white transition duration-100 rounded-lg hover:text-blue-400"
               href="#features"
             >
               Learn more
@@ -46,7 +46,7 @@ export default function Home() {
         </div>
       </article>
       <article
-        className="px-8 py-12 bg-black bg-opacity-5 md:px-20 md:py-24"
+        className="px-8 py-20 bg-black bg-opacity-5 md:px-20 md:py-24"
         id="features"
       >
         <h2 className="text-3xl font-semibold text-white">What's under the hood?</h2>
@@ -60,44 +60,44 @@ export default function Home() {
           </a>
           .
         </p>
-        <div className="grid gap-8 mt-8 lg:grid-cols-3">
+        <div className="grid gap-2 mt-12 lg:grid-cols-3">
           <div className="flex flex-col h-56 gap-1 p-8 bg-white shadow-lg rounded-2xl">
-            <h3 className="text-lg font-medium">Essay Guidance</h3>
+            <h3 className="text-lg font-medium text-blue-300">Essay Guidance</h3>
             <p className="text-gray-700">
             Sivvy (Our AI assistant) provides expert guidance and feedback on your college application essays.
             </p>
             <div className="grow"></div>
             <a
-              href=""
-              className="text-primary-600 cta hover:underline"
+              href="/dashboard"
+              className="text-primary-600 cta hover:text-blue-400"
               target="_blank"
             >
               Chat with Sivvy <span className="arrow">-&gt;</span>
             </a>
           </div>
           <div className="flex flex-col h-56 gap-1 p-8 bg-white shadow-lg rounded-2xl">
-            <h3 className="text-lg font-medium">Application Tracking</h3>
+            <h3 className="text-lg font-medium text-blue-300">Application Tracking</h3>
             <p className="text-gray-700">
             Easily monitor which colleges you've applied to, check deadlines, and receive reminders.
             </p>
             <div className="grow"></div>
             <a
-              href=""
-              className="text-primary-600 cta hover:underline"
+              href="/profile"
+              className="text-primary-600 cta hover:text-blue-400"
               target="_blank"
             >
                Tracking <span className="arrow">-&gt;</span>
             </a>
           </div>
           <div className="flex flex-col h-56 gap-1 p-8 bg-white shadow-lg rounded-2xl">
-            <h3 className="text-lg font-medium">Personalized Recommendations</h3>
+            <h3 className="text-lg font-medium text-blue-300">Personalized Recommendations</h3>
             <p className="text-gray-700">
             Our AI assistant leverages your academic and extracurricular achievements to provide tailored college recommendations.
             </p>
             <div className="grow"></div>
             <a
-              href=""
-              className="text-primary-600 cta hover:underline"
+              href="/profile"
+              className="text-primary-600 cta hover:text-blue-400"
               target="_blank"
             >
               Recommendations <span className="arrow">-&gt;</span>

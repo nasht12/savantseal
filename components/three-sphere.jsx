@@ -150,7 +150,7 @@ function BrainParticles({ allthecurves }) {
 function BrainRender() {
   return (
     <>
-      <Canvas camera={{ position: [0, 0, 3], near: 0.001, far: 5 }}>
+      <Canvas camera={{ position: [0, 0, 2], near: 0.001, far: 5 }}>
         <color attach="background" args={["black"]} />
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
