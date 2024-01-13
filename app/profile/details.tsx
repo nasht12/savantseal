@@ -3,7 +3,7 @@
 import { useOrganization, useSession, useUser } from "@clerk/nextjs";
 import classNames from "classnames";
 import { useEffect, useState } from "react";
-import { CopyIcon, Dot } from "../icons";
+// import { CopyIcon, Dot } from "../icons";
 import Image from "next/image";
 import "./prism.css";
 
@@ -151,7 +151,7 @@ export function SessionDetails() {
                   {session.status === `active` && (
                     <span className="text-xs bg-success-50 text-success-700 flex w-min gap-1 px-2 py-[1px] rounded-2xl font-medium">
                       <div className="m-auto">
-                        <Dot />
+                        {/* <Dot /> */}
                       </div>
                       Active
                     </span>
@@ -323,7 +323,7 @@ function CopyButton(props: { text: string }) {
           setTooltipShown(true);
         }}
       >
-        <CopyIcon />
+        {/* <CopyIcon /> */}
       </button>
 
       <div

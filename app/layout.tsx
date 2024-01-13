@@ -9,11 +9,9 @@ import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import { Docs, Github, Times } from "./icons";
-import { Twitter } from "./icons";
-import { Discord } from "./icons";
 import { Metadata } from "next";
 import { auth } from "@clerk/nextjs";
+import ConvexClientProvider from "./ConvexClientProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -50,65 +48,59 @@ export default function RootLayout({
         }}
       >
         <body className={`${inter.className} min-h-screen flex flex-col`}>
-        {userId && (
-          <header className="flex items-center h-20 gap-4 px-4 border-b border-black border-solid sm:px-8 border-opacity-20">
-            <Link href="/" className="flex items-center h-20 gap-2 sm:gap-4">
-              <Image
-                src="/savant2.svg"
-                alt="Clerk Logo"
-                width={102}
-                height={32}
-                priority
-              />
-              <Times />
-              {/* <Image
-                src="/savant2.svg"
-                alt="savantseal Logo"
-                width={90}
-                height={18}
-                priority
-              /> */}
-            </Link>
-                <Link
-                  href="/blog"
-                  className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded  hover:text-blue-600"
-                >
-                  Blog
-                </Link>
-                <Link
-                  href="/dashboard"
-                  className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded  hover:text-blue-600"
-                >
-                  Sivvy
-                </Link>
-                <Link
-                  href="/profile"
-                  className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded hover:border-blue-600 hover:text-blue-600"
-                >
-                  Profile
-                </Link>
-            <div className="grow" />
-            <SignedIn>
-              <div className="hidden sm:block">
-                <OrganizationSwitcher afterCreateOrganizationUrl="/dashboard" />
-              </div>
-              <div className="block sm:hidden">
-                <OrganizationSwitcher
-                  afterCreateOrganizationUrl="/dashboard"
-                  appearance={{
-                    elements: {
-                      organizationSwitcherTriggerIcon: `hidden`,
-                      organizationPreviewTextContainer: `hidden`,
-                      organizationSwitcherTrigger: `pr-0`,
-                    },
-                  }}
+          {userId && (
+            <header className="flex items-center h-20 gap-4 px-4 border-b border-black border-solid sm:px-8 border-opacity-20">
+              <Link href="/" className="flex items-center h-20 gap-2 sm:gap-4">
+                <Image
+                  src="/savant2.svg"
+                  alt="Clerk Logo"
+                  width={102}
+                  height={32}
+                  priority
                 />
-              </div>
-              <UserButton afterSignOutUrl="/" />
-            </SignedIn>
-          </header>
-        )}
-          <main className="grow">{children}</main>
+              </Link>
+              <Link
+                href="/blog"
+                className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded  hover:text-blue-600"
+              >
+                Blog
+              </Link>
+              <Link
+                href="/dashboard"
+                className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded  hover:text-blue-600"
+              >
+                Sivvy
+              </Link>
+              <Link
+                href="/profile"
+                className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded hover:border-blue-600 hover:text-blue-600"
+              >
+                Profile
+              </Link>
+              <div className="grow" />
+              <SignedIn>
+                <div className="hidden sm:block">
+                  <OrganizationSwitcher afterCreateOrganizationUrl="/dashboard" />
+                </div>
+                <div className="block sm:hidden">
+                  <OrganizationSwitcher
+                    afterCreateOrganizationUrl="/dashboard"
+                    appearance={{
+                      elements: {
+                        organizationSwitcherTriggerIcon: `hidden`,
+                        organizationPreviewTextContainer: `hidden`,
+                        organizationSwitcherTrigger: `pr-0`,
+                      },
+                    }}
+                  />
+                </div>
+                <UserButton afterSignOutUrl="/" />
+              </SignedIn>
+            </header>
+          )}
+          <main className="grow">
+            <ConvexClientProvider>{children}</ConvexClientProvider>
+          </main>
           <footer className="flex items-center h-20 gap-1 px-8 font-medium border-t md:px-20">
             <Image
               src="/savant2.svg"
@@ -118,24 +110,9 @@ export default function RootLayout({
               priority
             />
             <span className="text-sm">© 2023</span>
-            <nav className="flex justify-end grow sm:gap-2">
-              <a
-                className="flex flex-col justify-center p-2 hover:underline"
-                href="https://twitter.com/abhinasht"
-              >
-                <Twitter />
-              </a>
-              <a
-                className="flex flex-col justify-center p-2 hover:underline"
-                href="https://discord.com/invite/b5rXHjAg7A"
-              >
-                <Discord />
-              </a>
-            </nav>
           </footer>
         </body>
       </ClerkProvider>
-
       <Script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js" />
       <Script src="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/autoloader/prism-autoloader.min.js" />
     </html>
