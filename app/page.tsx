@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import componentsImg from "./assets/components.svg";
-import { DownArrow, RightArrow } from "./icons";
 import "./home.css";
 import PlainSphereRender  from "../components/three-sphere";
 import { auth, currentUser } from "@clerk/nextjs";
@@ -26,7 +25,7 @@ export default function Home() {
             >
               {userId ? "Sivvy" : "Login"}
               <div className="m-auto">
-                <RightArrow />
+                {/* <RightArrow /> */}
               </div>
             </Link>
             <a
@@ -35,7 +34,7 @@ export default function Home() {
             >
               Learn more
               <div className="m-auto">
-                <DownArrow />
+                {/* <DownArrow /> */}
               </div>
             </a>
           </div>

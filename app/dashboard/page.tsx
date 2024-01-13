@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useChat } from "ai/react";
 import va from "@vercel/analytics";
 import clsx from "clsx";
-import { VercelIcon, Github, LoadingCircle, SendIcon } from "../icons";
+// import { VercelIcon, Github, LoadingCircle, SendIcon } from "../icons";
 import { Bot, User } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -159,7 +159,7 @@ export default function HN() {
             )}
             disabled={disabled}
           >
-            {isLoading ? (
+            {/* {isLoading ? (
               <LoadingCircle />
             ) : (
               <SendIcon
@@ -168,7 +168,7 @@ export default function HN() {
                   input.length === 0 ? "text-gray-300" : "text-white",
                 )}
               />
-            )}
+            )} */}
           </button>
         </form>
       </div>

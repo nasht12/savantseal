@@ -1,20 +1,15 @@
-import { AccountForm } from "./account-form"
-import { Separator } from "@/components/ui/separator"
-import { DisplayForm } from "./display-form"
+"use client";
+import { useQuery } from "convex/react";
+import { api } from "../../convex/_generated/api";
 
-export default function SettingsAccountPage() {
+export default function CollegeList() {
+  const tasks = useQuery(api.tasks.get);
+  console.log('tasks', tasks);
   return (
-    <div className="container mx-auto max-w-4xl py-6 lg:py-10">
-      <div className="mb-4">
-        <h3 className="text-lg font-medium">College list</h3>
-        <p className="text-sm text-muted-foreground">
-          Search for colleges based on the criteria
-        </p>
-      </div>
-      <Separator />
-      <br/>
-      <AccountForm />
-      {/* <DisplayForm /> */}
-    </div>
-  )
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      {tasks?.map(({ _id, text }) => (
+        <div key={_id}>{text}</div>
+      ))}
+    </main>
+  );
 }
