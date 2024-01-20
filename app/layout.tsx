@@ -48,8 +48,8 @@ export default function RootLayout({
         }}
       >
         <body className={`${inter.className} min-h-screen flex flex-col`}>
-          {userId && (
-            <header className="flex items-center h-20 gap-4 px-4 border-b border-black border-solid sm:px-8 border-opacity-20">
+          {userId ? (
+            <header className="flex items-center h-20 gap-4 px-4 border-b  border-solid sm:px-8 border-opacity-20 ">
               <Link href="/" className="flex items-center h-20 gap-2 sm:gap-4">
                 <Image
                   src="/savant2.svg"
@@ -97,7 +97,9 @@ export default function RootLayout({
                 <UserButton afterSignOutUrl="/" />
               </SignedIn>
             </header>
-          )}
+          ) :             (<header className="h-20 gap-4 px-4 border-b border-black border-solid sm:px-8 border-opacity-20 bg-black">
+
+</header>        )}
           <main className="grow">
             <ConvexClientProvider>{children}</ConvexClientProvider>
           </main>

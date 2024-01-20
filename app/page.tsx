@@ -21,7 +21,7 @@ export default function Home() {
           <div className="flex gap-2 mt-8">
             <Link
               href="/dashboard"
-              className="flex content-center gap-2 px-4 py-2 font-semibold text-white transition-colors duration-200 rounded-lg bg-primary-600 hover:text-blue-400 hover:bg-primary-700"
+              className="flex content-center border-2 border-white gap-2 px-4 py-2 font-semibold text-white transition-colors duration-200 rounded-lg bg-primary-600 hover:text-blue-400 hover:bg-primary-700"
             >
               {userId ? "Sivvy" : "Login"}
               <div className="m-auto">
