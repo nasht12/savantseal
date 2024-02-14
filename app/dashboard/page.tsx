@@ -5,7 +5,7 @@ import { useChat } from "ai/react";
 import va from "@vercel/analytics";
 import clsx from "clsx";
 // import { VercelIcon, Github, LoadingCircle, SendIcon } from "../icons";
-import { Bot, User } from "lucide-react";
+import { Bot, Loader, MessageSquare, SendIcon, User } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Textarea from "react-textarea-autosize";
@@ -13,8 +13,8 @@ import { toast } from "sonner";
 
 const examples = [
   "Help me with my college essay.",
-  "Shortlist collges based on the given criteria.",
-  "What are the best colleges for computer science?",
+  "Shortlist colleges based on the given criteria.",
+  "Suggest top computer science programs in the US.",
 ];
 
 export default function HN() {
@@ -83,32 +83,11 @@ export default function HN() {
       ) : (
         <div className="border-gray-200sm:mx-0 mx-5 mt-20 max-w-screen-md rounded-md border sm:w-full">
           <div className="flex flex-col space-y-4 p-7 sm:p-10">
-            <h1 className="text-lg font-semibold text-black">
-              Welcome to Sivvy Chat!
+            <h1 className="flex items-center gap-2 text-lg font-semibold text-black">
+            <MessageSquare />
+              Chat with Sivvy!
             </h1>
-            <p className="text-gray-500">
-              This is an
-              AI chatbot that uses{" "}
-              <a
-                href="https://platform.openai.com/docs/guides/gpt/function-calling"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium underline underline-offset-4 transition-colors hover:text-black"
-              >
-                OpenAI Functions
-              </a>{" "}
-              and{" "}
-              <a
-                href="https://sdk.vercel.ai/docs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium underline underline-offset-4 transition-colors hover:text-black"
-              >
-                Vercel AI SDK
-              </a>{" "}
-              to interact with the{" "}
-              fine-tuned open AI 3.5 base model
-            </p>
+            
           </div>
           <div className="flex flex-col space-y-4 border-t border-gray-200 bg-gray-50 p-7 sm:p-10">
             {examples.map((example, i) => (
@@ -159,8 +138,8 @@ export default function HN() {
             )}
             disabled={disabled}
           >
-            {/* {isLoading ? (
-              <LoadingCircle />
+            {isLoading ? (
+              <Loader />
             ) : (
               <SendIcon
                 className={clsx(
@@ -168,7 +147,7 @@ export default function HN() {
                   input.length === 0 ? "text-gray-300" : "text-white",
                 )}
               />
-            )} */}
+            )}
           </button>
         </form>
       </div>

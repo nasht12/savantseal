@@ -12,6 +12,8 @@ import Script from "next/script";
 import { Metadata } from "next";
 import { auth } from "@clerk/nextjs";
 import ConvexClientProvider from "./ConvexClientProvider";
+import Navigation from "@/components/nav-bar";
+import NavMenu from "@/components/navigation-menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -53,7 +55,7 @@ export default function RootLayout({
               <Link href="/" className="flex items-center h-20 gap-2 sm:gap-4">
                 <Image
                   src="/savant2.svg"
-                  alt="Clerk Logo"
+                  alt="SavantSeal"
                   width={102}
                   height={32}
                   priority
@@ -61,21 +63,27 @@ export default function RootLayout({
               </Link>
               <Link
                 href="/blog"
-                className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded  hover:text-blue-600"
+                className="text-blue-400 hover:bg-blue-100 p-2 rounded hover:text-black"
               >
                 Blog
               </Link>
               <Link
                 href="/dashboard"
-                className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded  hover:text-blue-600"
+                className="text-blue-400 hover:bg-blue-100 p-2 rounded  hover:text-black"
               >
                 Sivvy
               </Link>
               <Link
                 href="/profile"
-                className="text-blue-400 bg-blue-100 border border-blue-400 p-2 rounded hover:border-blue-600 hover:text-blue-600"
+                className="text-blue-400 hover:bg-blue-100 p-2 rounded hover:text-black"
               >
                 Profile
+              </Link>
+              <Link
+                href="/collegelist"
+                className="text-blue-400 hover:bg-blue-100 p-2 rounded hover:text-black"
+              >
+                College List
               </Link>
               <div className="grow" />
               <SignedIn>
@@ -97,6 +105,7 @@ export default function RootLayout({
                 <UserButton afterSignOutUrl="/" />
               </SignedIn>
             </header>
+            // <NavMenu />
           ) :             (<header className="h-20 gap-4 px-4 border-b border-black border-solid sm:px-8 border-opacity-20 bg-black">
 
 </header>        )}
