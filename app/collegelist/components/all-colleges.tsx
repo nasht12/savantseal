@@ -8,21 +8,59 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
+  import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+  } from "@/components/ui/dialog";
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
+type College = {
+  latest: {
+    school: {
+      name: string;
+      city: string;
+      state: string;
+      school_url: string;
+    };
+    student: {
+      size: number;
+      grad_students: number;
+    };
+    programs: {
+      cip_4_digit: [];
+    };
+    cost: {
+      tuition: {
+        in_state: number;
+        out_of_state: number;
+      };
+    };
+    admissions: {
+      admission_rate: {
+        overall: number;
+      };
+    };
+  };
+};
+
 function AllColleges() {
   const [wordCount, setWordCount] = useState(0);
-  const [colleges, setColleges] = useState([]);
+  const [colleges, setColleges] = useState<College[]>([]);;
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [metadata, setMetadata] = useState();
-  const itemsPerPage = 20;
-  const pageLimit = 5;
+  const itemsPerPage = 10;
+  const pageLimit = 10;
 
   useEffect(() => {
     async function fetchColleges() {
@@ -36,12 +74,12 @@ function AllColleges() {
     fetchColleges();
   }, [currentPage]);
 
-  const handleChange = (event) => {
-    const words = event.target.value.split(',').filter(Boolean).map(word => word.trim());
+  const handleChange = (event: any) => {
+    const words = event.target.value.split(',').filter(Boolean).map((word: string) => word.trim());
     setWordCount(words.length);
   };
 
-  const handlePageChange = (pageNumber) => {
+  const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
 
@@ -55,7 +93,7 @@ function AllColleges() {
       <div className="flex flex-wrap">
         {colleges &&
           colleges.map((college) => (
-            <div className="flex flex-shrink w-1/4">
+            <div className="flex">
               <Card>
                 <CardHeader>
                   <CardTitle>{college.latest.school.name}</CardTitle>
@@ -65,7 +103,53 @@ function AllColleges() {
                 </CardHeader>
                 <CardContent></CardContent>
                 <CardFooter className="flex justify-between">
-                  <Button variant="outline">View</Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="outline">View</Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <DialogHeader>
+                        <DialogTitle>{college.latest.school.name}</DialogTitle>
+                        <DialogDescription>
+                          {college.latest.school.city},{" "}
+                          {college.latest.school.state}
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="flex gap-4 py-4">
+                        <ul>
+                          <li>Student Size: {college.latest.student.size}</li>
+                          <li>
+                            Grad Student: {college.latest.student.grad_students}
+                          </li>
+                          <li>
+                            No. of Programs:{" "}
+                            {college.latest.programs.cip_4_digit.length}
+                          </li>
+                          <li>
+                            In-state: {college.latest.cost.tuition.in_state}
+                          </li>
+                          <li>
+                            Out-of-state:{" "}
+                            {college.latest.cost.tuition.out_of_state}
+                          </li>
+                          <li>
+                            {college.latest.admissions.admission_rate
+                              .overall && (
+                              <>
+                                Admission rate:{" "}
+                                {college.latest.admissions.admission_rate
+                                  .overall * 100}
+                                %
+                              </>
+                            )}
+                          </li>
+                        </ul>
+                      </div>
+                      <DialogFooter>
+                        {/* <Button type="submit">Save changes</Button> */}
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
                   <Link
                     href={
                       college.latest.school.school_url.startsWith("http://") ||
