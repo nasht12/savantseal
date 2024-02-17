@@ -41,7 +41,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col justify-center">
           {/* <Image src={componentsImg} alt="Clerk embeddable components" /> */}
-          <PlainSphereRender />
+          {/* <PlainSphereRender /> */}
         </div>
       </article>
       <article
