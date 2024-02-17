@@ -20,7 +20,7 @@ export default function Navigation() {
         />
       </Link>
       <Link
-        href="/blog"
+        href="/articles"
         className="text-black font-semibold p-2 rounded hover:text-blue-400"
       >
         <button

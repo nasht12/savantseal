@@ -3,6 +3,7 @@ import {
   OrganizationSwitcher,
   SignedIn,
   UserButton,
+  useAuth
 } from "@clerk/nextjs";
 import "./globals.css";
 import { Inter } from "next/font/google";
@@ -13,6 +14,8 @@ import { Metadata } from "next";
 import { auth } from "@clerk/nextjs";
 import ConvexClientProvider from "./ConvexClientProvider";
 import Navigation from "@/components/nav-bar";
+import { ConvexProviderWithClerk } from "convex/react-clerk";
+import { ConvexReactClient } from "convex/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,15 +26,15 @@ export const metadata: Metadata = {
   openGraph: { images: ["/og.png"] },
 };
 
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { userId } = auth();
   return (
     <html lang="en">
-      <ClerkProvider>
+      <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
         <body className={`${inter.className} min-h-screen flex flex-col`}>
           <Navigation />
           <main className="grow">

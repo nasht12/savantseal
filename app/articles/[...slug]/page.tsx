@@ -10,15 +10,13 @@ import { absoluteUrl, cn, formatDate } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 
-export const dynamic = "force-static";
-
 interface PostPageProps {
   params: {
     slug: string[]
   }
 }
 
-function getPostFromParams(params: any) {
+async function getPostFromParams(params: any) {
   const slug = params?.slug?.join("/")
   const post = allPosts.find((post) => post.slugAsParams === slug)
 
