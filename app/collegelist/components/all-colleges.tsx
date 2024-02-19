@@ -59,6 +59,7 @@ function AllColleges() {
   const [totalPages, setTotalPages] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [metadata, setMetadata] = useState();
+  const [prettyJson, setPrettyJson] = useState('');
   const itemsPerPage = 10;
   const pageLimit = 10;
 
@@ -67,6 +68,7 @@ function AllColleges() {
       const res = await fetch(`https://api.data.gov/ed/collegescorecard/v1/schools.json?&api_key=RkKx2oqf53kdFKXiQCQloGt4Tz1SlLbzNNb1NOGD&page=${currentPage}&per_page=${itemsPerPage}`);
       const data = await res.json();
       setColleges(data.results);  
+      setPrettyJson(JSON.stringify(data.results, null, 2));
       setMetadata(data.metadata);
       setTotalPages(Math.ceil(data.metadata.total / itemsPerPage));
       setIsLoading(false);
@@ -202,6 +204,9 @@ function AllColleges() {
         >
           Next
         </Button>
+      </div>
+      <div>
+      <pre>{totalPages}</pre>
       </div>
     </div>
   );

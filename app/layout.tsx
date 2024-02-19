@@ -48,7 +48,7 @@ export default function RootLayout({
               height={32}
               priority
             />
-            <span className="text-sm">© 2023</span>
+            <span className="text-sm">© 2024</span>
           </footer>
         </body>
       </ClerkProvider>

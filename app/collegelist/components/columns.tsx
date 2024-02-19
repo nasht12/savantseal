@@ -9,6 +9,7 @@ export type College = {
   name: number
   city: string
   state: string
+  acceptanceRate: number
 }
 
 export const columns: ColumnDef<College>[] = [
@@ -23,5 +24,9 @@ export const columns: ColumnDef<College>[] = [
   {
     accessorKey: "state",
     header: "State",
+  },
+  {
+    accessorKey: "school_url",
+    header: "School URL",
   },
 ]
