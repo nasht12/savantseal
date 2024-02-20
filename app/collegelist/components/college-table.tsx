@@ -1,6 +1,6 @@
 // "use client";
 import React, { useEffect, useState } from 'react';
-import { College, columns } from "./columns"
+import { CollegeColumn, columns } from "./columns"
 import { DataTable } from "./data-table"
 
 async function getData() {

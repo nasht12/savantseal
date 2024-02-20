@@ -6,15 +6,14 @@ import { Checkbox } from "@/components/ui/checkbox"
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
-export type College = {
+export type CollegeColumn = {
   id: string
-  name: number
+  name: string
   city: string
   state: string
-  acceptanceRate: number
 }
 
-export const columns: ColumnDef<College>[] = [
+export const columns: ColumnDef<CollegeColumn>[] = [
   {
     id: "select",
     header: ({ table }) => (

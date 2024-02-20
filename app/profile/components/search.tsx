@@ -6,12 +6,26 @@ import { DataTable } from "./data-table";
 import { columns } from "./columns";
 import { Input } from "@/components/ui/input";
 
+interface RowType {
+  _id: string;
+  _creationTime: number;
+  name: string;
+  size: number | null;
+  state: string;
+  admissionRate: number;
+  city: string;
+  grad_students: number | null;
+  in_state: number | null;
+  out_of_state: number | null;
+  school_url: string | null;
+}
+
 export default function CollegeSearch() {
   const [searchText, setSearchText] = useState("");
   const searchResults = useQuery(api.college.searchCollege, { query: searchText }) || [];
   const [selectedRow, setSelectedRow] = useState([{}]);
 
-  const handleRowSelect = (row) => {
+  const handleRowSelect = (row: RowType) => {
     setSelectedRow([...selectedRow, row]);
     console.log(selectedRow);
   };

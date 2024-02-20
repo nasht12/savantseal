@@ -5,34 +5,23 @@ import { api } from "../../../convex/_generated/api";
 import { DataTable } from './data-table';
 import { columns } from './columns';
 
-type College = {
-  _id: string;
+type CollegeColumn = {
+  id: string;
   name: string;
-  size: number | null;
   city: string;
   state: string;
-  admissionRate: number;
-  grad_students: number | null;
-  in_state: number | null;
-  out_of_state: number | null;
-  school_url: string | null;
 };
 
 export default function CollegeConvexTable() {
     const collegesData = useQuery(api.college.getCollegeData) || [];
     console.log(collegesData);
 
-    const colleges: College[] = collegesData.map(({ _id, name, size, city, state, admissionRate, grad_students, in_state, out_of_state, school_url }) => ({
+    const colleges: CollegeColumn[] = collegesData.map(({ _id, name, size, city, state }) => ({
         name,
-        _id,
+        id: _id,
         size,
         city,
         state,
-        admissionRate,
-        grad_students,
-        in_state,
-        out_of_state,
-        school_url
       }));
     console.log(colleges);
     return (

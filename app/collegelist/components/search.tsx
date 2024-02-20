@@ -9,6 +9,11 @@ export default function CollegeSearch() {
   const [searchText, setSearchText] = useState("");
   const searchResults = useQuery(api.college.searchCollege, { query: searchText }) || [];
 
+  const formattedSearchResults = searchResults.map(result => ({
+    ...result,
+    id: result._id,
+  }));
+
   return (
     <main>
       {/* <h1>College Search</h1> */}
@@ -27,7 +32,7 @@ export default function CollegeSearch() {
             </li>
           ))}
         </ul> */}
-        <DataTable columns={columns} data={searchResults} />
+        <DataTable columns={columns} data={formattedSearchResults} />
       </div>
     </main>
   );
