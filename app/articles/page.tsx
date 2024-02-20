@@ -3,6 +3,7 @@ import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { allPosts } from "contentlayer/generated"
 import { compareDesc } from "date-fns"
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Articles() {
     const posts = allPosts
@@ -12,7 +13,7 @@ export default function Articles() {
     const items = posts.map((post) => ({
       title: post.title,
       description: post.description,
-      header: <img src={post.image} className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl"/>,
+      header: <Image width={300} height={300} alt={'img'} src={post.image} className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl"/>,
       slug: post.slug
     }));
 
