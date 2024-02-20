@@ -47,8 +47,4 @@ export const columns: ColumnDef<College>[] = [
     accessorKey: "state",
     header: "State",
   },
-  {
-    accessorKey: "school_url",
-    header: "School URL",
-  },
 ]

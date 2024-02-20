@@ -16,3 +16,13 @@ export const getCollegeData = query({
     return await ctx.db.query("college").collect();
   },
 });
+
+export const searchCollege = query({
+  args: { query: v.string() },
+  handler: async (ctx, { query }) => {
+    return await ctx.db
+      .query("college")
+      .withSearchIndex("search_name", (q) => q.search("name", query))
+      .take(10);
+  },
+});
