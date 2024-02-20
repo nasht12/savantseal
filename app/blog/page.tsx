@@ -9,14 +9,13 @@ export const metadata = {
   title: "Blog",
 }
 
-export default async function BlogPage() {
+export default function BlogPage() {
   const posts = allPosts
     // .filter((post) => post.published)
     .sort((a, b) => {
       return compareDesc(new Date(a.date), new Date(b.date))
     })
 
-    console.log(posts.length);
   return (
     <div className="container mx-auto max-w-4xl py-6 lg:py-10">
       <hr className="my-8" />
