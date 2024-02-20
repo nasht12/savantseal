@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { College, columns } from "./columns"
 import { DataTable } from "./data-table"
 
-async function getData(): Promise<College[]> {
+async function getData() {
     // const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 50;
 

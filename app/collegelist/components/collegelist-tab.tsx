@@ -8,7 +8,7 @@ import CollegeSearch from './search';
 
 export default function CollegeListTab() {
   return (
-    <Tabs defaultValue="table" className="p-8">
+    <Tabs defaultValue="CollegeSearch" className="p-8">
       <TabsList>
         <TabsTrigger value="table">Table</TabsTrigger>
         <TabsTrigger value="all">All</TabsTrigger>
@@ -21,7 +21,7 @@ export default function CollegeListTab() {
       </TabsContent>
       {/* <TabsContent value="top100"><SaveCollegeData /></TabsContent> */}
       <TabsContent value="table">
-        <CollegeTable />
+        {/* <CollegeTable /> */}
       </TabsContent>
       <TabsContent value="CollegeSearch">
         <CollegeSearch />
