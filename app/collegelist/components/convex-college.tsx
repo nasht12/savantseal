@@ -7,7 +7,6 @@ import { columns } from './columns';
 
 type College = {
   _id: string;
-  acceptanceRate: number | null;
   name: string;
   size: number | null;
   city: string;
@@ -23,10 +22,9 @@ export default function CollegeConvexTable() {
     const collegesData = useQuery(api.college.getCollegeData) || [];
     console.log(collegesData);
 
-    const colleges: College[] = collegesData.map(({ _id, acceptanceRate, name, size, city, state, admissionRate, grad_students, in_state, out_of_state, school_url }) => ({
+    const colleges: College[] = collegesData.map(({ _id, name, size, city, state, admissionRate, grad_students, in_state, out_of_state, school_url }) => ({
         name,
         _id,
-        acceptanceRate,
         size,
         city,
         state,
