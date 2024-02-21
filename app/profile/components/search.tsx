@@ -6,6 +6,7 @@ import { DataTable } from "./data-table";
 import { columns } from "./columns";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { toast } from "sonner"
 
 interface RowType {
   _id: string;
@@ -27,8 +28,17 @@ export default function CollegeSearch() {
   const [selectedRow, setSelectedRow] = useState<RowType[]>([]);
 
   const handleRowSelect = (row: RowType) => {
+    if (selectedRow.find((item) => item._id === row._id)) {
+      return;
+    }
     setSelectedRow([...selectedRow, row]);
-    console.log(selectedRow);
+    toast(`${row.name} is added to your list`, {
+      description: `Update your selections from selected colleges tab.`,
+      action: {
+        label: "Undo",
+        onClick: () => console.log("Undo"),
+      }
+    })
   };
 
 console.log('selectedRow', selectedRow);
@@ -64,7 +74,7 @@ console.log('selectedRow', selectedRow);
         </Card>
         <Card className="flex-grow">
           <CardHeader>
-            <CardTitle>Recent Sales</CardTitle>
+            <CardTitle>Selected Colleges</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="mt-16 m-2">

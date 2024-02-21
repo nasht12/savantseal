@@ -22,10 +22,10 @@ export default async function DashboardPage() {
           <TabsTrigger value="profile">Profile</TabsTrigger>
           <TabsTrigger value="createlist">Create College List</TabsTrigger>
           <TabsTrigger value="reports" disabled>
-            Reports
+            Selected Colleges
           </TabsTrigger>
           <TabsTrigger value="notifications" disabled>
-            Notifications
+            Edit college list
           </TabsTrigger>
         </TabsList>
         <TabsContent value="profile">

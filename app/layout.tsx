@@ -14,8 +14,7 @@ import { Metadata } from "next";
 import { auth } from "@clerk/nextjs";
 import ConvexClientProvider from "./ConvexClientProvider";
 import Navigation from "@/components/nav-bar";
-import { ConvexProviderWithClerk } from "convex/react-clerk";
-import { ConvexReactClient } from "convex/react";
+import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,12 +33,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
+      <ClerkProvider
+        publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+      >
         <body className={`${inter.className} min-h-screen flex flex-col`}>
           <Navigation />
           <main className="grow">
             <ConvexClientProvider>{children}</ConvexClientProvider>
           </main>
+          <Toaster />
           <footer className="flex items-center h-20 gap-1 px-8 font-medium border-t md:px-20">
             <Image
               src="/savant2.svg"
