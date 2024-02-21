@@ -25,7 +25,7 @@ export default function Navigation() {
       >
         <button
           className={`px-4 py-2 rounded-md border bg-white text-neutarl-700 text-sm transition duration-200 ${
-            pathname === "/blog"
+            pathname === "/articles"
               ? "text-blue-400 border border-black shadow-[4px_4px_0px_0px_rgba(0,0,0)]"
               : "border-transparent hover:text-blue-400 hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)]"
           }`}
