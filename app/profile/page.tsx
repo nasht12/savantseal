@@ -5,6 +5,7 @@ import Link from "next/link";
 import CollegeSearch from "./components/search";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import CollegeList from "./components/college-list";
 
 export default async function DashboardPage() {
   const { userId } = auth();
@@ -20,13 +21,8 @@ export default async function DashboardPage() {
       <Tabs defaultValue="profile">
         <TabsList>
           <TabsTrigger value="profile">Profile</TabsTrigger>
-          <TabsTrigger value="createlist">Create College List</TabsTrigger>
-          <TabsTrigger value="reports" disabled>
-            Selected Colleges
-          </TabsTrigger>
-          <TabsTrigger value="notifications" disabled>
-            Edit college list
-          </TabsTrigger>
+          {/* <TabsTrigger value="createlist">Create College List</TabsTrigger> */}
+          <TabsTrigger value="collegelist">Your College list</TabsTrigger>
         </TabsList>
         <TabsContent value="profile">
           <div className="py-4">
@@ -42,8 +38,11 @@ export default async function DashboardPage() {
             )}
           </div>
         </TabsContent>
-        <TabsContent value="createlist">
+        {/* <TabsContent value="createlist">
           <CollegeSearch />
+        </TabsContent> */}
+        <TabsContent value="collegelist">
+          <CollegeList />
         </TabsContent>
       </Tabs>
     </div>

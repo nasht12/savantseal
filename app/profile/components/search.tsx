@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
-import { DataTable } from "./data-table";
+import { SelectDataTable } from "./select-data-table";
 import { columns } from "./columns";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -62,7 +62,7 @@ console.log('selectedRow', selectedRow);
               </div>
               <div className="">
                 {searchResults.length > 0 && (
-                  <DataTable
+                  <SelectDataTable
                     data={searchResults}
                     columns={columns}
                     onRowSelect={handleRowSelect}
@@ -79,7 +79,7 @@ console.log('selectedRow', selectedRow);
           <CardContent>
             <div className="mt-16 m-2">
               {selectedRow.length > 0 && (
-                <DataTable data={selectedRow} columns={columns} />
+                <SelectDataTable data={selectedRow} columns={columns} />
               )}
             </div>
           </CardContent>

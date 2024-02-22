@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image';
+import { Button } from './ui/button';
 
 export default function Navigation() {
     const pathname = usePathname();
@@ -23,7 +24,7 @@ export default function Navigation() {
         href="/articles"
         className="text-black font-semibold p-2 rounded hover:text-blue-400"
       >
-        <button
+        <Button
           className={`px-4 py-2 rounded-md border bg-white text-neutarl-700 text-sm transition duration-200 ${
             pathname === "/articles"
               ? "text-blue-400 border border-black shadow-[4px_4px_0px_0px_rgba(0,0,0)]"
@@ -31,46 +32,52 @@ export default function Navigation() {
           }`}
         >
           Blog
-        </button>
+        </Button>
       </Link>
       <Link
         href="/dashboard"
         className="text-black font-semibold p-2 rounded hover:text-blue-400"
       >
-<button
+        <Button
           className={`px-4 py-2 rounded-md border bg-white text-neutarl-700 text-sm transition duration-200 ${
             pathname === "/dashboard"
               ? "text-blue-400 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0)]"
               : "border-transparent hover:text-blue-400 hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)]"
           }`}
-        >          Sivvy
-        </button>
+        >
+          {" "}
+          Sivvy
+        </Button>
       </Link>
       <Link
         href="/profile"
         className="text-black font-semibold p-2 rounded hover:text-blue-400"
       >
-<button
+        <Button
           className={`px-4 py-2 rounded-md border bg-white text-neutarl-700 text-sm transition duration-200 ${
             pathname === "/profile"
               ? "text-blue-400 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0)]"
               : "border-transparent hover:text-blue-400 hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)]"
           }`}
-        >          Profile
-        </button>
+        >
+          {" "}
+          Profile
+        </Button>
       </Link>
       <Link
         href="/collegelist"
         className="text-black font-semibold p-2 rounded hover:text-blue-400"
       >
-<button
+        <Button
           className={`px-4 py-2 rounded-md border bg-white text-neutarl-700 text-sm transition duration-200 ${
             pathname === "/collegelist"
               ? "text-blue-400 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0)]"
               : "border-transparent hover:text-blue-400 hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)]"
           }`}
-        >          College List
-        </button>
+        >
+          {" "}
+          College List
+        </Button>
       </Link>
       <div className="grow" />
       <SignedIn>
