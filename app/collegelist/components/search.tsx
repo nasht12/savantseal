@@ -15,25 +15,14 @@ export default function CollegeSearch() {
   }));
 
   return (
-    <main>
-      {/* <h1>College Search</h1> */}
-      <div className="search">
-        <h2>Search Colleges</h2>
-        <input
-          value={searchText}
-          onChange={(event) => setSearchText(event.target.value)}
-          placeholder="Search for a college"
-        />
-        {/* <ul>
-          {searchResults.map((college) => (
-            <li key={college._id}>
-              <span>{college.name}</span>
-              <span>{college.city}, {college.state}</span>
-            </li>
-          ))}
-        </ul> */}
-        <DataTable columns={columns} data={formattedSearchResults} />
-      </div>
-    </main>
+    <div className="search">
+      <h2>Search Colleges</h2>
+      <input
+        value={searchText}
+        onChange={(event) => setSearchText(event.target.value)}
+        placeholder="Search for a college"
+      />
+      <DataTable columns={columns} data={formattedSearchResults} />
+    </div>
   );
 }

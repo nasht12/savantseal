@@ -4,13 +4,12 @@ import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image';
-import { Button } from './ui/button';
 
 export default function Navigation() {
     const pathname = usePathname();
 
   return (
-    <header className="flex items-center h-20 gap-4 px-4 border-b  border-solid sm:px-8 border-opacity-20 ">
+    <div className="flex items-center gap-2 md:gap-4 px-4 border-b border-solid border-opacity-20 ">
       <Link href="/" className="flex items-center h-20 gap-2 sm:gap-4">
         <Image
           src="/savant2.svg"
@@ -24,7 +23,7 @@ export default function Navigation() {
         href="/articles"
         className="text-black font-semibold p-2 rounded hover:text-blue-400"
       >
-        <Button
+        <button
           className={`px-4 py-2 rounded-md border bg-white text-neutarl-700 text-sm transition duration-200 ${
             pathname === "/articles"
               ? "text-blue-400 border border-black shadow-[4px_4px_0px_0px_rgba(0,0,0)]"
@@ -32,13 +31,13 @@ export default function Navigation() {
           }`}
         >
           Blog
-        </Button>
+        </button>
       </Link>
       <Link
         href="/dashboard"
         className="text-black font-semibold p-2 rounded hover:text-blue-400"
       >
-        <Button
+        <button
           className={`px-4 py-2 rounded-md border bg-white text-neutarl-700 text-sm transition duration-200 ${
             pathname === "/dashboard"
               ? "text-blue-400 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0)]"
@@ -47,13 +46,13 @@ export default function Navigation() {
         >
           {" "}
           Sivvy
-        </Button>
+        </button>
       </Link>
       <Link
         href="/profile"
         className="text-black font-semibold p-2 rounded hover:text-blue-400"
       >
-        <Button
+        <button
           className={`px-4 py-2 rounded-md border bg-white text-neutarl-700 text-sm transition duration-200 ${
             pathname === "/profile"
               ? "text-blue-400 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0)]"
@@ -62,13 +61,13 @@ export default function Navigation() {
         >
           {" "}
           Profile
-        </Button>
+        </button>
       </Link>
       <Link
         href="/collegelist"
         className="text-black font-semibold p-2 rounded hover:text-blue-400"
       >
-        <Button
+        <button
           className={`px-4 py-2 rounded-md border bg-white text-neutarl-700 text-sm transition duration-200 ${
             pathname === "/collegelist"
               ? "text-blue-400 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0)]"
@@ -77,7 +76,7 @@ export default function Navigation() {
         >
           {" "}
           College List
-        </Button>
+        </button>
       </Link>
       <div className="grow" />
       <SignedIn>
@@ -98,6 +97,6 @@ export default function Navigation() {
         </div>
         <UserButton afterSignOutUrl="/" />
       </SignedIn>
-    </header>
+    </div>
   );
 }

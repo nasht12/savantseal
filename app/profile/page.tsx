@@ -17,11 +17,10 @@ export default async function DashboardPage() {
   const user = await clerkClient.users.getUser(userId);
 
   return (
-    <div className="px-8 py-12 sm:py-16 md:px-20">
-      <Tabs defaultValue="profile">
+    <div className="px-8 py-12 sm:py-16 md:px-20 ">
+      <Tabs defaultValue="profile" className="min-h-screen">
         <TabsList>
           <TabsTrigger value="profile">Profile</TabsTrigger>
-          {/* <TabsTrigger value="createlist">Create College List</TabsTrigger> */}
           <TabsTrigger value="collegelist">Your College list</TabsTrigger>
         </TabsList>
         <TabsContent value="profile">
@@ -38,11 +37,8 @@ export default async function DashboardPage() {
             )}
           </div>
         </TabsContent>
-        {/* <TabsContent value="createlist">
-          <CollegeSearch />
-        </TabsContent> */}
         <TabsContent value="collegelist">
-          <CollegeList />
+          <CollegeSearch />
         </TabsContent>
       </Tabs>
     </div>

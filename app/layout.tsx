@@ -36,22 +36,16 @@ export default function RootLayout({
       <ClerkProvider
         publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
       >
-        <body className={`${inter.className} min-h-screen flex flex-col`}>
-          <Navigation />
-          <main className="grow">
-            <ConvexClientProvider>{children}</ConvexClientProvider>
-          </main>
-          <Toaster />
-          <footer className="flex items-center h-20 gap-1 px-8 font-medium border-t md:px-20">
-            <Image
-              src="/savant2.svg"
-              alt="savant Logo"
-              width={64}
-              height={32}
-              priority
-            />
-            <span className="text-sm">© 2024</span>
-          </footer>
+        <body>
+          <div className="dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2]">
+            <main>
+              <ConvexClientProvider>
+                <Navigation />
+                {children}
+              </ConvexClientProvider>
+            </main>
+            <Toaster />
+          </div>
         </body>
       </ClerkProvider>
     </html>
