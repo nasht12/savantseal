@@ -87,7 +87,6 @@ export default function HN() {
             <MessageSquare />
               Chat with Sivvy!
             </h1>
-            
           </div>
           <div className="flex flex-col space-y-4 border-t border-gray-200 bg-gray-50 p-7 sm:p-10">
             {examples.map((example, i) => (
